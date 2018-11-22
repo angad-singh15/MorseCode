@@ -1,0 +1,26 @@
+a._ DONE
+b_... DONE
+c_._. DONE
+d_.. DONE
+e. DONE /
+f.._. DONE
+g__. DONE
+h.... DONE
+i.. DONE
+j.___ DONE
+k_._ DONE
+l._.. DONE
+m__ DONE
+n_. DONE
+o___ DONE
+p.__. DONE
+q__._ DONE
+r._. DONE
+s... DONE
+t_ DONE / 
+u.._ DONE
+v..._ DONE
+w.__ DONE
+x_.._ DONE
+y_.__ DONE
+z__.. DONE
