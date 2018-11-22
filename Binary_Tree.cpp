@@ -55,3 +55,25 @@ void Binary_Tree::addLetterWrapper() {
 
 	binaryFile.close(); // Close the file, now that we're done with it
 }
+
+char Binary_Tree::getLetter() {
+	return this->letter;
+}
+
+char Binary_Tree::getLeftLetter() {
+	if (this->left == NULL) {
+		cout << "Left is NULL. Returning empty char." << endl;
+		return ' ';
+	}
+
+	return this->left->letter;
+}
+
+char Binary_Tree::getRightLetter() {
+	if (this->right == NULL) {
+		cout << "Right is NULL. Returning empty char." << endl;
+		return ' ';
+	}
+
+	return this->right->letter;
+}
