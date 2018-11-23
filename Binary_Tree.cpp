@@ -9,7 +9,7 @@ Binary_Tree::Binary_Tree() {
 
 void Binary_Tree::addLetter(char letter, string code, Binary_Tree * binaryTree) {
 	Binary_Tree * temp = binaryTree; // Create a temp pointer to traverse the tree and modify it
-
+	root = binaryTree;  //used later for traversing
 	// Using the morse code variable, traverse through the tree until the correct position to insert the letter is found
 	for (int i = 0; i < code.length(); i++) {
 		if (code[i] == '.') {
@@ -76,4 +76,40 @@ char Binary_Tree::getRightLetter() {
 	}
 
 	return this->right->letter;
+}
+
+string Binary_Tree::decode(string str) {
+
+	Binary_Tree* current = root; //setting the current node to root of tree for traversing
+	string result = "";  //output string
+
+	for (int i = 0; i <= str.size(); i++) { //search for the morse code 
+
+		if (str[i] == '.') {	
+			if (current->left != NULL) // If left node is not null(has a letter) 
+				current = current->left; //get the left subtree
+
+			else { // If left node is empty, make a new one, set it to NULL, and continue on
+				current->left = new Binary_Tree();
+				current = current->left;
+			}
+		}
+		else if (str[i] == '_') {  // traversing right
+			if (current->right != NULL)  // If left node is not null(has a letter) 
+				current = current->right;    //get the right subtree
+
+			else {
+				current->right = new Binary_Tree();   // If right node is empty, make a new one, set it to NULL, and continue on
+				current = current->right;
+			}
+		}
+		else {
+			result += (current->getLetter());  //else just append the current letter to the output string
+			current = root;  //go back to the root node 
+
+		}
+	}
+	result += (current->getLetter()); //append the current letter to the output string
+
+	return result;
 }

@@ -5,13 +5,14 @@
 using namespace std;
 
 class Binary_Tree {
-private:
-	Binary_Tree * left;
-	Binary_Tree * right;
-	string code;
-	char letter;
 
 public:
+	Binary_Tree * left;
+	Binary_Tree * right;
+	Binary_Tree* root;
+	string code;
+	char letter;
+	string decode(string str); //Decodes morse code using the binary tree
 	Binary_Tree(); // Default Constructor
 	void addLetter(char letter, string code, Binary_Tree * binaryTree); // Function to add the letters to the tree
 	void addLetterWrapper(); // Wrapper function to call the addLetter function
