@@ -57,6 +57,11 @@ void Binary_Tree::addLetterWrapper() {
 }
 
 char Binary_Tree::getLetter() {
+	if (this == NULL) {
+		cout << "Current is NULL. Returning empty char." << endl;
+		return ' ';
+	}
+
 	return this->letter;
 }
 
