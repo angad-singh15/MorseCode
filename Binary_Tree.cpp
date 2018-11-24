@@ -90,7 +90,7 @@ string Binary_Tree::decode(string str) {
 
 	for (int i = 0; i <= str.size(); i++) { //search for the morse code 
 
-		if (str[i] == '.') {	
+		if (str[i] == '.') {
 			if (current->left != NULL) // If left node is not null(has a letter) 
 				current = current->left; //get the left subtree
 

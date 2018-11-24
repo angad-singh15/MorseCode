@@ -9,44 +9,32 @@ int main() {
 
 	string str = "._ _. __. ._ _..";
 
-	cout<<morseCodeTree.decode(str);
+	cout << morseCodeTree.decode(str);
 
+	cout << encoder();
 	system("pause");
 	return 0;
 }
 
 string encoder() {
-	string letters = "ac"; // Variable that will store the letters we want to convert into Morse code
-	string morseCode = ""; // Variable that will store the Morse code encoding 
+	ifstream morseFile;
+	morseFile.open("morse.txt");
+
+	char morseChar; // Variable to hold the letter from the text file
+	string morseRep; // Variable to hold the Morse code representation of the letter from the text file
 
 	map <char, string> morse; // Map to hold all alphabetical characters with their respective Mores code representations
 
-	morse['a'] = ".-";
-	morse['b'] = "-...";
-	morse['c'] = "-.-.";
-	morse['d'] = "-..";
-	morse['e'] = ".";
-	morse['f'] = "..-.";
-	morse['g'] = "--.";
-	morse['h'] = "....";
-	morse['i'] = "..";
-	morse['j'] = ".---";
-	morse['k'] = "-.-";
-	morse['l'] = ".-..";
-	morse['m'] = "--";
-	morse['n'] = "-.";
-	morse['o'] = "---";
-	morse['p'] = ".--.";
-	morse['q'] = "--.-";
-	morse['r'] = ".-.";
-	morse['s'] = "...";
-	morse['t'] = "-";
-	morse['u'] = "..-";
-	morse['v'] = "...-";
-	morse['w'] = ".--";
-	morse['x'] = "-..-";
-	morse['y'] = "-.--";
-	morse['z'] = "--..";
+
+	while (morseFile.good()) {
+		morseFile >> morseChar;
+		morseFile >> morseRep;
+
+		morse[morseChar] = morseRep; // Add the letter as a key and the Morse code representation as a value into the map
+	}
+
+	string letters = "ac"; // Variable that will store the letters we want to convert into Morse code
+	string morseCode = ""; // Variable that will store the Morse code encoding (will be what we print out onto the screen)
 
 	// Change all characters in the letters variable into Morse code, and then store that into the morseCode variable
 	for (int i = 0; i < letters.length(); i++) {
@@ -55,6 +43,8 @@ string encoder() {
 				morseCode = morseCode + it->second + " ";
 		}
 	}
+
+	morseFile.close();
 
 	// Return the Morse code representation of the characters
 	return morseCode;

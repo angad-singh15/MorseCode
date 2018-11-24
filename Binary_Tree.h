@@ -12,11 +12,11 @@ public:
 	Binary_Tree* root;
 	string code;
 	char letter;
-	string decode(string str); //Decodes morse code using the binary tree
 	Binary_Tree(); // Default Constructor
-	void addLetter(char letter, string code, Binary_Tree * binaryTree); // Function to add the letters to the tree
-	void addLetterWrapper(); // Wrapper function to call the addLetter function
 	char getLetter(); // Return letter of current node
 	char getLeftLetter(); // Return letter of node to the left
 	char getRightLetter(); // Return letter of node to the right
+	void addLetter(char letter, string code, Binary_Tree * binaryTree); // Function to add the letters to the tree
+	void addLetterWrapper(); // Wrapper function to call the addLetter function
+	string decode(string str);
 };
