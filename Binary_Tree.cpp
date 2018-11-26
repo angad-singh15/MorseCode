@@ -1,9 +1,9 @@
 #include "Binary_Tree.h"
 
 Binary_Tree::Binary_Tree() {
+	root = NULL;
 	left = NULL;
 	right = NULL;
-	code = "";
 	letter = ' ';
 }
 
